@@ -1,8 +1,7 @@
-"use strict";
-const { Sequelize } = require("sequelize");
-const sequelize = require("../../config/database");
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../dbconnection");
 
-module.exports = sequelize.define(
+const CinemaModel = sequelize.define(
   "Tbl_CinemaLists",
   {
     id: {
@@ -12,9 +11,11 @@ module.exports = sequelize.define(
       type: Sequelize.INTEGER,
     },
     CinemaName: {
+      allowNull: false,
       type: Sequelize.STRING,
     },
     CinemaLocation: {
+      allowNull: false,
       type: Sequelize.STRING,
     },
     createdAt: {
@@ -35,3 +36,5 @@ module.exports = sequelize.define(
     modelName: "Tbl_CinemaLists",
   }
 );
+// await CinemaModel.sync({ alter: true });
+module.exports = CinemaModel;
