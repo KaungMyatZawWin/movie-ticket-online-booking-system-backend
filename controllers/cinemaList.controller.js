@@ -16,4 +16,24 @@ const createCinema = async (req, res, next) => {
   // res.json({ message: "Wait I am developing" });
 };
 
-module.exports = { createCinema };
+const getCinemaList = async (req, res, next) => {
+  try {
+    const cinemaLists = await CinemaModel.findAll();
+
+    return res.status(200).json({
+      status: "Success",
+      isSuccess: true,
+      isError: false,
+      RespData: cinemaLists,
+    });
+  } catch (error) {
+    return res.status(400).json({
+      status: "Failed",
+      isSuccess: false,
+      isError: true,
+      message: "Can't get lists",
+    });
+  }
+};
+
+module.exports = { createCinema, getCinemaList };
