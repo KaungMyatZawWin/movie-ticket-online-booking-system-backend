@@ -1,9 +1,9 @@
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize } = require("sequelize");
 const sequelize = require("../dbconnection");
-const CinemaModel = require("./CinemaModel");
+const RoomModel = require("./RoomModel");
 
-const RoomModel = sequelize.define(
-  "Tbl_CinemaRooms",
+const SeatModel = sequelize.define(
+  "Tbl_RoomSeat",
   {
     id: {
       allowNull: false,
@@ -11,10 +11,14 @@ const RoomModel = sequelize.define(
       primaryKey: true,
       type: Sequelize.INTEGER,
     },
-    RoomNumber: {
+    SeatNo: {
+      allowNull: false,
       type: Sequelize.INTEGER,
     },
-    RoomName: {
+    RowName: {
+      type: Sequelize.STRING,
+    },
+    SeatType: {
       type: Sequelize.STRING,
     },
     createdAt: {
@@ -30,16 +34,15 @@ const RoomModel = sequelize.define(
     },
   },
   {
-    paranoid: true,
     freezeTableName: true,
-    modelName: "Tbl_CinemaRooms",
+    modelName: "Tbl_RoomSeat",
   }
 );
 
-CinemaModel.hasMany(RoomModel, {
-  foreignKey: "CinemaId",
+RoomModel.hasMany(SeatModel, {
+  foreignKey: "RoomId",
   allowNull: false,
 });
-// RoomModel.belongsTo(CinemaModel);
+// SeatModel.belongsTo(RoomModel);
 
-module.exports = RoomModel;
+module.exports = SeatModel;
