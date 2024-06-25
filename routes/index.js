@@ -10,6 +10,7 @@ const {
   getCinemaList,
 } = require("../controllers/index");
 const { createSeat } = require("../controllers/seatList.controller");
+const { createSeatPrice } = require("../controllers/seatPrice.controller");
 
 //cinema
 router.route(ApiRoute.CINEMA_LISTS_ROUTE).post(createCinema);
@@ -22,5 +23,8 @@ router.route(ApiRoute.CINEMA_ROOM_LISTS_ROUTE).get(getAllRooms);
 
 //seat
 router.route(ApiRoute.SEAT_LIST_ROUTE).post(createSeat);
+
+//seat price
+router.route(ApiRoute.SEAT_PRICE_ROUTE).post(createSeatPrice);
 
 module.exports = router;
