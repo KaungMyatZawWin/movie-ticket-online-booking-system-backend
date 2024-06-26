@@ -1,8 +1,11 @@
-const { QueryTypes } = require("sequelize");
-const sequelize = require("../db/dbconnection");
-const RoomModel = require("../db/models/RoomModel");
+// const { QueryTypes } = require("sequelize");
+// const sequelize = require("../db/dbconnection");
+// const RoomModel = require("../db/models/RoomModel");
+import QueryTypes from "sequelize";
+import sequelize from "../db/dbconnection.js";
+import RoomModel from "../db/models/RoomModel.js";
 
-const createCinemaRoom = async (req, res, next) => {
+export const createCinemaRoom = async (req, res, next) => {
   const body = req?.body;
   if (!body) return res.status(400).json({ message: "Required data field" });
 
@@ -19,7 +22,7 @@ const createCinemaRoom = async (req, res, next) => {
   });
 };
 
-const getAllRooms = async (req, res, next) => {
+export const getAllRooms = async (req, res, next) => {
   try {
     const rooms = await RoomModel.findAll();
     return res.status(200).json({
@@ -38,7 +41,7 @@ const getAllRooms = async (req, res, next) => {
   }
 };
 
-const getRoomsWithTheirCinema = async (req, res, next) => {
+export const getRoomsWithTheirCinema = async (req, res, next) => {
   try {
     const rooms = await sequelize.query(
       `SELECT * FROM "Tbl_CinemaLists" JOIN "Tbl_CinemaRooms" ON "Tbl_CinemaLists".id = "Tbl_CinemaRooms".CinemaId;`,
@@ -63,4 +66,4 @@ const getRoomsWithTheirCinema = async (req, res, next) => {
   }
 };
 
-module.exports = { createCinemaRoom, getAllRooms, getRoomsWithTheirCinema };
+// module.exports = { createCinemaRoom, getAllRooms, getRoomsWithTheirCinema };
