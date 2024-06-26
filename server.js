@@ -1,11 +1,13 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const sequelize = require("./db/dbconnection");
-const rootRouter = require("./routes/index");
-const ApiRoute = require("./constants/routeConstant");
-// import express from "express";
-// import dotenv from "dotenv";
-// import rootRouter from "./routes/index";
+// const express = require("express");
+// const dotenv = require("dotenv");
+// const sequelize = require("./db/dbconnection");
+// const rootRouter = require("./routes/index");
+// const ApiRoute = require("./constants/routeConstant");
+import express from "express";
+import dotenv from "dotenv";
+import rootRouter from "./routes/index.js";
+import sequelize from "./db/dbconnection.js";
+import ApiRoute from "./constants/routeConstant.js";
 dotenv.config();
 
 const port = process.env.PORT || 3000;

@@ -1,6 +1,7 @@
-const { Sequelize } = require("sequelize");
-const sequelize = require("../dbconnection");
-const RoomModel = require("./RoomModel");
+import Sequelize from "sequelize";
+import { DataTypes } from "sequelize";
+import sequelize from "../dbconnection.js";
+import RoomModel from "./RoomModel.js";
 
 const SeatModel = sequelize.define(
   "Tbl_RoomSeat",
@@ -45,4 +46,5 @@ RoomModel.hasMany(SeatModel, {
 });
 // SeatModel.belongsTo(RoomModel);
 
-module.exports = SeatModel;
+// module.exports = SeatModel;
+export default SeatModel;

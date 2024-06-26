@@ -4,7 +4,8 @@ const ApiRoute = {
   MOVIE_LISTS_ROUTE: "/movies",
   CINEMA_LISTS_ROUTE: "/cinemas",
   CINEMA_ROOM_LISTS_ROUTE: "/cinema/rooms",
-  SEAT_LIST_ROUTE: "/cinema/room/seats"
+  SEAT_LIST_ROUTE: "/cinema/room/seats",
 };
 
-module.exports = ApiRoute;
+// module.exports = ApiRoute;
+export default ApiRoute;
