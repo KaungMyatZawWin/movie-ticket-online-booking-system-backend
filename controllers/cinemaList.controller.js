@@ -1,7 +1,6 @@
-// const CinemaModel = require("../db/models/CinemaModel");
-import CinemaModel from "../db/models/CinemaModel.js";
+const CinemaModel = require("../db/models/CinemaModel");
 
-export const createCinema = async (req, res, next) => {
+const createCinema = async (req, res, next) => {
   try {
     const body = req?.body;
     if (!body) return res.status(400).json({ message: "Please add data." });
@@ -17,7 +16,7 @@ export const createCinema = async (req, res, next) => {
   // res.json({ message: "Wait I am developing" });
 };
 
-export const getCinemaList = async (req, res, next) => {
+const getCinemaList = async (req, res, next) => {
   try {
     const cinemaLists = await CinemaModel.findAll();
 
@@ -37,4 +36,4 @@ export const getCinemaList = async (req, res, next) => {
   }
 };
 
-// module.exports = { createCinema, getCinemaList };
+module.exports = { createCinema, getCinemaList };

@@ -1,7 +1,6 @@
-// const SeatModel = require("../db/models/SeatModel");
-import SeatModel from "../db/models/SeatModel.js";
+const SeatModel = require("../db/models/SeatModel");
 
-export const createSeat = async (req, res, next) => {
+const createSeat = async (req, res, next) => {
   if (!req?.body) res.status(400).json({ message: "Required data!" });
   try {
     const { seatNo, rowName, seatType, roomId } = req?.body;
@@ -22,4 +21,4 @@ export const createSeat = async (req, res, next) => {
   }
 };
 
-// module.exports = { createSeat };
+module.exports = { createSeat };

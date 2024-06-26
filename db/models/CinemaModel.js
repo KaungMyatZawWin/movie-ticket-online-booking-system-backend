@@ -1,8 +1,5 @@
-// const { Sequelize, DataTypes } = require("sequelize");
-import Sequelize from "sequelize";
-import { DataTypes } from "sequelize";
-import sequelize from "../dbconnection.js";
-// const sequelize = require("../dbconnection");
+const { Sequelize, DataTypes } = require("sequelize");
+const sequelize = require("../dbconnection");
 
 const CinemaModel = sequelize.define(
   "Tbl_CinemaLists",
@@ -40,6 +37,4 @@ const CinemaModel = sequelize.define(
   }
 );
 // await CinemaModel.sync({ alter: true });
-// module.exports = CinemaModel;
-
-export default CinemaModel;
+module.exports = CinemaModel;
